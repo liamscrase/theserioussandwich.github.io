@@ -1,5 +1,6 @@
 ---
 import Header from "../components/header.astro";
+import "@splidejs/splide/css";
 ---
 
 <html lang="en">
@@ -34,22 +35,79 @@ import Header from "../components/header.astro";
         </div>
       </div>
       <div id="intro-section">
-		<div class="content">
-			<div class="inner">
-				<div class="text">
-					<h1><span>We Make</span><br>Serious Sandwiches</h1>
-					<p>
-					  At The Serious Sandwich, we believe that a sandwich is more than just
-					  food – it's an experience. Our passion for crafting the perfect
-					  sandwich drives us to use only the freshest ingredients and boldest
-					  flavors. Whether you're craving a classic deli-style sandwich or an
-					  adventurous creation, we've got something to satisfy every palate.
-					</p>
-				</div>
-				<img src="/images/intro-img.jpeg" alt="">
-			</div>
-		</div>
+        <div class="content">
+          <div class="inner">
+            <div class="text">
+              <h1><span>We Make</span><br />Serious Sandwiches</h1>
+              <p>
+                At The Serious Sandwich, we believe that a sandwich is more than
+                just food – it's an experience. Our passion for crafting the
+                perfect sandwich drives us to use only the freshest ingredients
+                and boldest flavors. Whether you're craving a classic deli-style
+                sandwich or an adventurous creation, we've got something to
+                satisfy every palate.
+              </p>
+            </div>
+
+            <div id="food-slider" class="splide">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide">
+                    <img
+                      src="/images/sandwich-solo.png"
+                      alt="sandwich"
+                    />
+					<span>Sandwich</span>
+                  </li>
+				  <li class="splide__slide">
+                    <img
+                      src="/images/sandwich-solo.png"
+                      alt="sandwich"
+                    />
+					<span>Sandwich</span>
+                  </li>
+				  <li class="splide__slide">
+                    <img
+                      src="/images/sandwich-solo.png"
+                      alt="sandwich"
+                    />
+					<span>Sandwich</span>
+                  </li>
+				  <li class="splide__slide">
+                    <img
+                      src="/images/sandwich-solo.png"
+                      alt="sandwich"
+                    />
+					<span>Sandwich</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </body>
 </html>
+
+<script>
+  import Splide from '@splidejs/splide';
+
+  new Splide('#food-slider', {
+    type: 'loop',
+    gap: '1rem',
+    arrows: true,
+    pagination: true,
+    autoplay: false,
+
+    // ⭐️ RESPONSIVE SETTINGS
+    perPage: 3, // Desktop default
+
+    breakpoints: {
+      1024: { perPage: 2 }, // Tablets
+      640: { perPage: 1 },  // Mobile
+    }
+
+  }).mount();
+</script>

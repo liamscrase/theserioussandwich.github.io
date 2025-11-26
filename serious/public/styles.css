@@ -28,7 +28,7 @@ body {
 }
 
 #body-wrapper {
-  margin-top: 61px;
+  margin-top: 69px;
 }
 
 .content {
@@ -72,6 +72,22 @@ p {
   box-shadow: 0 6px 0 rgb(255, 255, 255);
 }
 
+.order-button-medium {
+  background-color: var(--primary-red);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 200px;
+  border: 2px solid #ffffff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: "Zalando Sans";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 0 rgb(255, 255, 255);
+}
+
 .order-button-small {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -85,22 +101,8 @@ p {
   font-family: "Zalando Sans";
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  border-bottom: 0px solid var(--background-color);
-  transition: background-color 300ms ease, border-bottom-color 300ms ease, -webkit-backdrop-filter 300ms ease;
-  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease;
-  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
-}
-nav.scrolled {
-  background: color-mix(in srgb, var(--background-color) 85%, transparent);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  min-width: 118px;
 }
 
 .desktop-navbar {
@@ -111,7 +113,7 @@ nav.scrolled {
   margin: auto;
   display: flex;
   align-items: center;
-  padding: 8px 20px;
+  padding: 32px 20px;
   flex-direction: row;
   justify-content: space-between;
   max-width: 1200px;
@@ -119,7 +121,7 @@ nav.scrolled {
   gap: 32px;
 }
 .desktop-navbar .desktop-navbar-container img {
-  height: 200px;
+  height: 100px;
   display: block;
 }
 .desktop-navbar .desktop-navbar-container .nav-links {
@@ -127,11 +129,12 @@ nav.scrolled {
   flex-direction: row;
   align-items: center;
   gap: 24px;
+  width: 179.3px;
 }
 .desktop-navbar .desktop-navbar-container .nav-links ul {
   list-style: none;
   display: flex;
-  gap: 2px;
+  gap: 32px;
 }
 .desktop-navbar .desktop-navbar-container .nav-links ul li {
   display: flex;
@@ -140,11 +143,14 @@ nav.scrolled {
 .desktop-navbar .desktop-navbar-container .nav-links ul li a {
   text-decoration: none;
   color: var(--text-color);
-  padding: 8px 16px;
+  padding: 8px 0;
   border-radius: 4px;
   transition: color 0.3s ease;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: "Zalando Sans";
 }
 .desktop-navbar .desktop-navbar-container .nav-links ul li a:hover {
   color: var(--hover-color);
@@ -155,6 +161,20 @@ nav.scrolled {
   width: 100vw;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  background-color: var(--background-color);
+}
+.mobile-navbar .title {
+  text-decoration: none;
+  color: var(--text-color);
+  border-radius: 4px;
+  transition: color 0.3s ease;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: "Zalando Sans";
 }
 .mobile-navbar .mobile-navbar-container {
   display: flex;
@@ -162,21 +182,29 @@ nav.scrolled {
   margin: auto;
   justify-content: space-between;
   width: 100%;
-  padding: 16px;
+  padding: 20px;
+  gap: 32px;
+}
+.mobile-navbar .mobile-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 .mobile-navbar .menu-toggle {
   display: none;
 }
 .mobile-navbar .hamburger {
   position: relative;
+  top: -1px;
   width: 24px;
   height: 24px;
+  min-width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 1100;
-  margin-left: 100px;
 }
 .mobile-navbar .hamburger span {
   position: absolute;
@@ -271,12 +299,13 @@ nav.scrolled {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: url("/images/hero-image.jpg");
+  background: url("/images/intro-img.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
   height: 400px;
   overflow: hidden;
+  margin: auto;
 }
 .hero-section:before {
   content: "";
@@ -285,7 +314,7 @@ nav.scrolled {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 .hero-section .inner {
@@ -322,17 +351,36 @@ nav.scrolled {
   flex-direction: column;
   align-items: center;
 }
-#intro-section img {
+#intro-section #food-slider {
+  max-width: 1200px;
   width: 100%;
-  max-width: 500px;
-  border-radius: 8px;
+  margin: 0 auto;
+}
+#intro-section #food-slider img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain; /* Ensure entire image is visible */
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 800px) {
+  #body-wrapper {
+    margin-top: 0;
+  }
+  .hero-section .inner {
+    display: none;
+  }
   .mobile-navbar {
     display: none;
   }
   .desktop-navbar {
     display: flex;
+  }
+  .hero-section {
+    height: 400px;
   }
 }/*# sourceMappingURL=styles.css.map */

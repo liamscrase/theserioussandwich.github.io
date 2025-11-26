@@ -1,6 +1,3 @@
-// ====================
-// CSS Variables
-// ====================
 html {
   scroll-behavior: smooth;
 }
@@ -34,7 +31,7 @@ body {
 }
 
 #body-wrapper {
-  margin-top: 61px;
+  margin-top: 69px;
 }
 
 .content {
@@ -78,6 +75,22 @@ p {
   box-shadow: 0 6px 0 rgba(255, 255, 255, 1);
 }
 
+.order-button-medium {
+  background-color: var(--primary-red);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 200px;
+  border: 2px solid #ffffff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: "Zalando Sans";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 0 rgba(255, 255, 255, 1);
+}
+
 .order-button-small {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -91,28 +104,13 @@ p {
   font-family: "Zalando Sans";
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-align: center;
+  min-width: 118px;
 }
 
 // ====================
 // Header & Navigation
 // ====================
-
-
-nav {
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  border-bottom: 0px solid var(--background-color);
-  transition: background-color 300ms ease,
-    border-bottom-color 300ms ease,
-    backdrop-filter 300ms ease;
-
-  &.scrolled {
-    background: color-mix(in srgb, var(--background-color) 85%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
-  }
-}
 
 .desktop-navbar {
   width: 100%;
@@ -122,7 +120,7 @@ nav {
     margin: auto;
     display: flex;
     align-items: center;
-    padding: 8px 20px;
+    padding: 32px 20px;
     flex-direction: row;
     justify-content: space-between;
     max-width: 1200px;
@@ -130,7 +128,7 @@ nav {
     gap: 32px;
 
     img {
-      height: 200px;
+      height: 100px;
       display: block;
     }
 
@@ -139,11 +137,12 @@ nav {
       flex-direction: row;
       align-items: center;
       gap: 24px;
+      width: 179.3px;
 
       ul {
         list-style: none;
         display: flex;
-        gap: 2px;
+        gap: 32px;
 
         li {
           display: flex;
@@ -152,11 +151,14 @@ nav {
           a {
             text-decoration: none;
             color: var(--text-color);
-            padding: 8px 16px;
+            padding: 8px 0;
             border-radius: 4px;
             transition: color 0.3s ease;
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            font-family: "Zalando Sans";
 
             &:hover {
               color: var(--hover-color);
@@ -173,6 +175,21 @@ nav {
   width: 100vw;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  background-color: var(--background-color);
+
+  .title {
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 4px;
+    transition: color 0.3s ease;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-family: "Zalando Sans";
+  }
 
   .mobile-navbar-container {
     display: flex;
@@ -180,7 +197,15 @@ nav {
     margin: auto;
     justify-content: space-between;
     width: 100%;
-    padding: 16px;
+    padding: 20px;
+    gap: 32px;
+  }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
   }
 
 
@@ -190,14 +215,15 @@ nav {
 
   .hamburger {
     position: relative;
+    top: -1px;
     width: 24px;
     height: 24px;
+    min-width: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 1100;
-    margin-left: 100px;
 
     span {
       position: absolute;
@@ -315,12 +341,13 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: url("/images/hero-image.jpg");
+  background: url("/images/intro-img.jpeg");
   background-size: cover;
   background-position: center;
   position: relative;
   height: 400px;
   overflow: hidden;
+  margin: auto;
 
   &:before {
     content: "";
@@ -329,7 +356,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
   }
 
@@ -365,6 +392,7 @@ nav {
     font-weight: 500;
     text-transform: uppercase;
 
+
     span {
       color: var(--text-color-alt);
     }
@@ -378,16 +406,33 @@ nav {
     align-items: center;
   }
 
-  img {
+    #food-slider {
+    max-width: 1200px;
     width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
+    margin: 0 auto;
+  }
+
+    #food-slider img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;   /* Ensure entire image is visible */
+    object-position: center;
+    object-fit: cover;
   }
 }
 
 
 // Desktop styles
-@media (min-width: 1200px) {
+@media (min-width: 800px) {
+  #body-wrapper {
+    margin-top: 0;
+  }
+
+  .hero-section {
+    .inner {
+      display: none;
+    }
+  }
 
   // Navigation
   .mobile-navbar {
@@ -396,5 +441,10 @@ nav {
 
   .desktop-navbar {
     display: flex;
+  }
+
+  // Hero Section
+  .hero-section {
+    height: 400px;
   }
 }
