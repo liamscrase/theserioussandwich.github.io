@@ -53,37 +53,28 @@ import "@splidejs/splide/css";
               <div class="splide__track">
                 <ul class="splide__list">
                   <li class="splide__slide">
-                    <img
-                      src="/images/sandwich-solo.png"
-                      alt="sandwich"
-                    />
-					<span>Sandwich</span>
+                    <img src="/images/sandwiches/chicken.jpeg" alt="sandwich" />
+                    <span>Chicken and Roasted Capsicum</span>
                   </li>
-				  <li class="splide__slide">
-                    <img
-                      src="/images/sandwich-solo.png"
-                      alt="sandwich"
-                    />
-					<span>Sandwich</span>
+                  <li class="splide__slide">
+                    <img src="/images/sandwiches/blt.jpeg" alt="sandwich" />
+                    <span>BLT</span>
                   </li>
-				  <li class="splide__slide">
-                    <img
-                      src="/images/sandwich-solo.png"
-                      alt="sandwich"
-                    />
-					<span>Sandwich</span>
+                  <li class="splide__slide">
+                    <img src="/images/sandwiches/ham.jpeg" alt="sandwich" />
+                    <span>Classic Ham and Cheese</span>
                   </li>
-				  <li class="splide__slide">
-                    <img
-                      src="/images/sandwich-solo.png"
-                      alt="sandwich"
-                    />
-					<span>Sandwich</span>
+                  <li class="splide__slide">
+                    <img src="/images/sandwiches/peanut.jpeg" alt="sandwich" />
+                    <span>Poached Chicken and Peanut Slaw</span>
+                  </li>
+                  <li class="splide__slide">
+                    <img src="/images/sandwiches/halloumi.jpeg" alt="sandwich" />
+                    <span>Halloumi Sambo</span>
                   </li>
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -92,11 +83,11 @@ import "@splidejs/splide/css";
 </html>
 
 <script>
-  import Splide from '@splidejs/splide';
+  import Splide from "@splidejs/splide";
 
-  new Splide('#food-slider', {
-    type: 'loop',
-    gap: '1rem',
+  new Splide("#food-slider", {
+    type: "loop",
+    gap: "1rem",
     arrows: true,
     pagination: true,
     autoplay: false,
@@ -106,8 +97,7 @@ import "@splidejs/splide/css";
 
     breakpoints: {
       1024: { perPage: 2 }, // Tablets
-      640: { perPage: 1 },  // Mobile
-    }
-
+      640: { perPage: 1 }, // Mobile
+    },
   }).mount();
 </script>
