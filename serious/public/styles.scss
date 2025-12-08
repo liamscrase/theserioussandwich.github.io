@@ -30,6 +30,8 @@ body {
   z-index: 1;
 }
 
+
+
 .content {
   padding: 0 20px;
   max-width: 1200px;
@@ -59,7 +61,7 @@ p {
   color: var(--white);
   padding: 16px 24px;
   border-radius: 200px;
-  border: 2px solid #ffffff;
+  border: 2px solid #000;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -67,7 +69,7 @@ p {
   font-family: "Zalando Sans";
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 6px 0 rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 1);
 }
 
 .order-button-medium {
@@ -379,7 +381,7 @@ p {
 // ====================
 
 #intro-section {
-  padding: 100px 0;
+  padding: 50px 0 60px;
   text-align: center;
   background-color: var(--white);
 
@@ -401,6 +403,10 @@ p {
 
   p {
     color: var(--black);
+  }
+
+  .order-button {
+    margin-top: 60px;
   }
 
   .inner {
@@ -460,17 +466,24 @@ p {
 // ====================
 
 #coffee-section {
-  padding: 100px 0;
-  background: #E56244;
+  padding: 50px 0 60px;
+  background: #F0EEE9;
   position: relative;
 
-  .content {
+  .inner {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-
-  .text {
     text-align: center;
-    align-items: center;
+    gap: 80px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+    }
+
   }
 
   h2 {
@@ -480,13 +493,106 @@ p {
     font-family: "League Gothic";
     font-weight: 500;
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--black);
   }
 
   p {
-    color: var(--white);
+    color: var(--black);
     max-width: 600px;
     margin: 0 auto 40px auto;
+  }
+}
+
+// ====================
+// Footer
+// ====================
+
+footer {
+  background-color: var(--primary-red);
+  color: var(--white);
+  padding: 60px 20px 40px;
+  text-align: center;
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .links {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      width: 100%;
+
+      a {
+        color: var(--white);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        font-family: "Zalando Sans";
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--hover-color);
+        }
+      }
+    }
+
+    .social {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+
+      a {
+        display: block;
+        width: 32px;
+        height: 32px;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .terms {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      a {
+        color: var(--text-color-alt);
+        font-size: 11px;
+        font-weight: 400;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--text-color);
+        }
+      }
+
+      span {
+        color: var(--text-color-alt);
+        font-size: 11px;
+      }
+    }
+  }
+
+  .copyright {
+    display: block;
+    color: var(--text-color-alt);
+    font-size: 11px;
+    font-weight: 300;
+    margin-top: 24px;
   }
 }
 
@@ -515,37 +621,46 @@ p {
     display: flex;
   }
 
+  #intro-section {
+    padding: 90px 0 100px;
+  }
+
   #coffee-section {
-    height: 700px;
-    position: relative;
+    padding: 100px 0;
 
-    .text {
-      width: 50%;
+    .inner {
+      flex-direction: row;
       text-align: left;
-      position: relative;
-    }
+      justify-content: space-between;
+      gap: 50px;
 
-    .img {
-      width: 50%;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-color: #E56244;
+      img {
+        width: 50%;
+        max-width: 380px;
+        height: auto;
+      }
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: url("/images/coffee.jpg") no-repeat center center;
-        background-size: contain; // keep aspect ratio, no stretch
-        pointer-events: none;
+      .text {
+        width: 50%;
       }
     }
+  }
 
+  footer {
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+
+      .links {
+        justify-content: flex-start;
+      }
+
+      .terms {
+        justify-content: flex-end;
+      }
+
+    }
   }
 }

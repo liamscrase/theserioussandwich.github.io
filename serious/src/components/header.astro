@@ -46,23 +46,3 @@ const siteTitle = "The Serious Sandwich";
   </div>
   <label for="menu-toggle" class="offcanvas-backdrop"></label>
 </nav>
-
-<script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async></script>
-<script>
-  const setHeaderHeight = () => {
-    const desktop = document.querySelector(".desktop-navbar");
-    const mobile = document.querySelector(".mobile-navbar");
-    const activeNavEl =
-      desktop && getComputedStyle(desktop).display !== "none"
-        ? desktop
-        : mobile;
-    if (activeNavEl instanceof HTMLElement) {
-      document.documentElement.style.setProperty(
-        "--header-height",
-        activeNavEl.offsetHeight + "px"
-      );
-    }
-  };
-  window.addEventListener("load", setHeaderHeight);
-  window.addEventListener("resize", setHeaderHeight);
-</script>
