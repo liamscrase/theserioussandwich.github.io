@@ -34,12 +34,12 @@ body {
   width: 100%;
 }
 
-h2,
-h3 {
+h2 {
   margin-bottom: 20px;
   font-family: "League Gothic";
   font-weight: 500;
   text-transform: uppercase;
+  font-size: 36px;
 }
 
 p {
@@ -416,18 +416,30 @@ p {
   max-width: 300px;
 }
 #coffee-section h2 {
-  font-size: 48px;
   margin-bottom: 20px;
-  line-height: 50px;
-  font-family: "League Gothic";
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--black);
 }
 #coffee-section p {
   color: var(--black);
   max-width: 600px;
   margin: 0 auto 40px auto;
+}
+
+#team-section {
+  padding: 50px 0;
+}
+#team-section .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 80px;
+}
+#team-section .inner img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 footer {
@@ -511,6 +523,9 @@ footer .copyright {
   #body-wrapper {
     margin-top: -164px;
   }
+  h2 {
+    font-size: 48px;
+  }
   .hero-section {
     height: 600px;
   }
@@ -541,6 +556,21 @@ footer .copyright {
     height: auto;
   }
   #coffee-section .inner .text {
+    width: 50%;
+  }
+  #team-section {
+    padding: 100px 0;
+  }
+  #team-section .inner {
+    flex-direction: row-reverse;
+    text-align: left;
+    justify-content: space-between;
+    gap: 50px;
+  }
+  #team-section .inner img {
+    width: 50%;
+  }
+  #team-section .inner .text {
     width: 50%;
   }
   footer .footer-content {
