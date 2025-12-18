@@ -25,12 +25,33 @@ body {
 }
 
 #body-wrapper {
-  margin-top: 69px;
+  margin-top: 67px;
   position: relative;
   z-index: 1;
 }
 
+.social {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 
+  a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
 
 .content {
   padding: 0 20px;
@@ -130,9 +151,18 @@ p {
     width: 100%;
     gap: 32px;
 
-    img {
+    .logo {
       height: 100px;
       display: block;
+    }
+
+    .social {
+      margin-right: 12px;
+
+      a {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     .nav-links {
@@ -272,16 +302,21 @@ p {
 .offcanvas-menu {
   position: fixed;
   top: 0;
-  right: -80vw;
+  left: -80vw;
   width: 80vw;
   max-width: 340px;
   height: 100vh;
-  background: var(--black);
-  transition: right 0.3s;
+  background: #141414;
+  transition: left 0.3s;
   z-index: 1050;
 
   .menu-items {
     margin: 80px 20px 36px 20px;
+
+    .social {
+      justify-content: flex-start;
+      margin-left: 32px;
+    }
 
     ul {
       display: flex;
@@ -289,18 +324,20 @@ p {
       flex-direction: column;
       align-items: flex-start;
       list-style: none;
+      margin-bottom: 32px;
 
       li {
         width: 100%;
         text-decoration: none;
-        padding: 18px;
+        display: block;
 
         a {
+          display: block;
           color: var(--white);
           font-size: 20px;
           font-weight: 500;
           text-decoration: none;
-          padding: 18px;
+          padding: 16px 32px;
         }
       }
     }
@@ -329,7 +366,7 @@ p {
   }
 
   .offcanvas-menu {
-    right: 0;
+    left: 0;
   }
 }
 
@@ -390,12 +427,28 @@ p {
 
   h1 {
     font-size: 56px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     line-height: 58px;
     font-family: "League Gothic";
     font-weight: 500;
     text-transform: uppercase;
     color: var(--black);
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      background: url("/images/brushstroke/red.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 300px;
+      height: 100%;
+      transform: translateX(50%);
+      right: 50%;
+      top: 45px;
+    }
 
 
     span {
@@ -536,8 +589,31 @@ p {
 footer {
   background-color: var(--primary-red);
   color: var(--white);
-  padding: 60px 20px 40px;
+  padding: 50px 0;
   text-align: center;
+  position: relative;
+
+  .content {
+    z-index: 2;
+    position: relative;
+  }
+
+  .google-map {
+    border-radius: 12px;
+    margin-bottom: 80px;
+
+    iframe {
+      border-radius: 12px;
+    }
+  }
+
+  .copyright {
+    display: block;
+    color: var(--text-color-alt);
+    font-size: 11px;
+    font-weight: 300;
+    margin-top: 24px;
+  }
 
   .footer-content {
     display: flex;
@@ -561,29 +637,6 @@ footer {
 
         &:hover {
           color: var(--hover-color);
-        }
-      }
-    }
-
-    .social {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-
-      a {
-        display: block;
-        width: 32px;
-        height: 32px;
-        transition: opacity 0.3s ease;
-
-        &:hover {
-          opacity: 0.7;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
         }
       }
     }
@@ -612,16 +665,7 @@ footer {
       }
     }
   }
-
-  .copyright {
-    display: block;
-    color: var(--text-color-alt);
-    font-size: 11px;
-    font-weight: 300;
-    margin-top: 24px;
-  }
 }
-
 
 
 // Desktop styles
@@ -652,11 +696,11 @@ footer {
   }
 
   #intro-section {
-    padding: 90px 0 100px;
+    padding: 100px;
   }
 
   #coffee-section {
-    padding: -0;
+    padding: 0;
 
     .inner {
       flex-direction: row;
@@ -682,7 +726,7 @@ footer {
   }
 
   #team-section {
-    padding: 100px 0;
+    padding: 100px;
 
     .inner {
       display: grid;
@@ -694,6 +738,11 @@ footer {
   }
 
   footer {
+
+    .google-map {
+      margin-bottom: 80px;
+    }
+
     .footer-content {
       flex-direction: row;
       justify-content: space-between;
@@ -707,7 +756,6 @@ footer {
       .terms {
         justify-content: flex-end;
       }
-
     }
   }
 }

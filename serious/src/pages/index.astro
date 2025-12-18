@@ -1,24 +1,15 @@
 ---
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
+import SiteHead from "../components/SiteHead.astro";
 import "@splidejs/splide/css";
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="/styles.css" />
-    <title>Astro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-      rel="stylesheet"
+    <SiteHead
+      title="The Serious Sandwich"
+      description="Seriously Good Sandwiches made fresh daily."
     />
   </head>
   <body>
@@ -39,15 +30,7 @@ import "@splidejs/splide/css";
         <div class="content">
           <div class="inner">
             <div class="text">
-              <h1><span>We Make</span><br />Serious Sandwiches</h1>
-              <p>
-                At The Serious Sandwich, we believe that a sandwich is more than
-                just food – it's an experience. Our passion for crafting the
-                perfect sandwich drives us to use only the freshest ingredients
-                and boldest flavors. Whether you're craving a classic deli-style
-                sandwich or an adventurous creation, we've got something to
-                satisfy every palate.
-              </p>
+              <h1>Seriously Good Sandwiches</h1>
             </div>
 
             <div id="food-slider" class="splide">
@@ -94,7 +77,10 @@ import "@splidejs/splide/css";
             <div class="text">
               <h2>Make it a combo</h2>
               <p>
-                Pair your favorite sandwich with a freshly brewed coffee for the perfect meal. Whether you’re after something hearty or something light, our fresh brews and handcrafted sandwiches come together for a flavour-packed experience you’ll want every day.
+                Pair your favorite sandwich with a freshly brewed coffee for the
+                perfect meal. Whether you’re after something hearty or something
+                light, our fresh brews and handcrafted sandwiches come together
+                for a flavour-packed experience you’ll want every day.
               </p>
               <span
                 class="order-button"
@@ -121,7 +107,6 @@ import "@splidejs/splide/css";
             </div>
             <img src="/images/team.jpg" alt="" />
           </div>
-
         </div>
       </div>
     </div>
