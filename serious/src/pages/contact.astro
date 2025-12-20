@@ -1,0 +1,43 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+import SiteHead from "../components/SiteHead.astro";
+---
+
+<html lang="en">
+  <head>
+    <SiteHead
+      title="The Serious Sandwich"
+      description="Seriously Good Sandwiches made fresh daily."
+    />
+  </head>
+  <body>
+    <Header />
+    <section class="content">
+      <h1>Contact</h1>
+
+      <p>If you have questions or catering enquiries, drop us a message.</p>
+
+      <form action="/" method="post" class="contact-form">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <button type="submit" class="order-button-medium">Send</button>
+      </form>
+    </section>
+
+    <Footer />
+  </body>
+</html>

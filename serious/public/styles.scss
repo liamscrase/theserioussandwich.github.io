@@ -7,7 +7,8 @@ html {
   --white: #ffffff;
   --off-white: rgba(255, 255, 255, 0.7);
   --border-color: #cbcbcb;
-  --primary-red: #9A3437;
+  --red: #9A3437;
+  --beige: #F0EEE9;
 }
 
 // ====================
@@ -29,18 +30,57 @@ body {
   position: relative;
   z-index: 1;
 }
+/* Contact form styles */
+.contact-form {
+  max-width: 720px;
+  margin: 24px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    display: block;
+    font-family: "Zalando Sans";
+    font-size: 14px;
+    color: var(--black);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+  }
+
+  textarea { min-height: 140px; }
+
+  .order-button-medium {
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+
+  @media (min-width: 800px) {
+    gap: 16px;
+  }
+}
 
 .social {
   display: flex;
   gap: 20px;
   justify-content: center;
-
+  
   a {
     display: block;
     width: 32px;
     height: 32px;
     transition: opacity 0.3s ease;
-
+    
     &:hover {
       opacity: 0.7;
     }
@@ -51,6 +91,13 @@ body {
       object-fit: contain;
     }
   }
+}
+
+/* Make desktop nav solid on inner pages (when `is-home` is not present) */
+.desktop-navbar:not(.is-home) {
+  background: #000 !important;
+  -webkit-backdrop-filter: none !important;
+          backdrop-filter: none !important;
 }
 
 .content {
@@ -65,7 +112,8 @@ h2 {
   font-family: "League Gothic";
   font-weight: 500;
   text-transform: uppercase;
-  font-size: 36px;
+  font-size: 42px;
+  
 }
 
 p {
@@ -79,7 +127,7 @@ p {
 
 .order-button {
   display: inline-block;
-  background-color: var(--primary-red);
+  background-color: var(--red);
   color: var(--white);
   padding: 16px 24px;
   border-radius: 200px;
@@ -91,12 +139,29 @@ p {
   font-family: "Zalando Sans";
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 6px 0 var(--black);
+}
+
+.order-button-alt {
+  display: inline-block;
+  background-color: var(--beige);
+  color: var(--black);
+  padding: 16px 24px;
+  border-radius: 200px;
+  border: 2px solid var(--black);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: "Zalando Sans";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 0 var(--black);
 }
 
 .order-button-medium {
   display: inline-block;
-  background-color: var(--primary-red);
+  background-color: var(--red);
   color: var(--white);
   padding: 8px 16px;
   border-radius: 200px;
@@ -446,8 +511,8 @@ p {
       width: 300px;
       height: 100%;
       transform: translateX(50%);
-      right: 50%;
-      top: 45px;
+      right: 45%;
+      top: 70px;
     }
 
 
@@ -461,7 +526,7 @@ p {
     color: var(--black);
   }
 
-  .order-button {
+  .order-button-alt {
     margin-top: 60px;
   }
 
@@ -523,7 +588,7 @@ p {
 
 #coffee-section {
   padding: 50px 0 60px;
-  background: #F0EEE9;
+  background: var(--beige);
   position: relative;
 
   .inner {
@@ -570,6 +635,7 @@ p {
       width: 100%;
       height: 400px;
       object-fit: cover;
+      object-position: 23% center;
       border-radius: 16px;
     }
 
@@ -587,7 +653,7 @@ p {
 // ====================
 
 footer {
-  background-color: var(--primary-red);
+  background-color: var(--red);
   color: var(--white);
   padding: 50px 0;
   text-align: center;
@@ -667,6 +733,27 @@ footer {
   }
 }
 
+@media (min-width: 503px) {
+    #intro-section {
+
+    h1 {
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        background: url("/images/brushstroke/red.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 300px;
+        height: 100%;
+        transform: translateX(50%);
+        right: 50%;
+        top: 45px;
+      }
+    }
+  }
+}
 
 // Desktop styles
 @media (min-width: 800px) {
@@ -696,7 +783,7 @@ footer {
   }
 
   #intro-section {
-    padding: 100px;
+    padding: 100px 0;
   }
 
   #coffee-section {
@@ -726,7 +813,7 @@ footer {
   }
 
   #team-section {
-    padding: 100px;
+    padding: 100px 0;
 
     .inner {
       display: grid;

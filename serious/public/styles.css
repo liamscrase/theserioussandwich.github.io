@@ -7,7 +7,8 @@ html {
   --white: #ffffff;
   --off-white: rgba(255, 255, 255, 0.7);
   --border-color: #cbcbcb;
-  --primary-red: #9A3437;
+  --red: #9A3437;
+  --beige: #F0EEE9;
 }
 
 * {
@@ -25,6 +26,45 @@ body {
   margin-top: 67px;
   position: relative;
   z-index: 1;
+}
+
+/* Contact form styles */
+.contact-form {
+  max-width: 720px;
+  margin: 24px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-form label {
+  display: block;
+  font-family: "Zalando Sans";
+  font-size: 14px;
+  color: var(--black);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+.contact-form textarea {
+  min-height: 140px;
+}
+.contact-form .order-button-medium {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+@media (min-width: 800px) {
+  .contact-form {
+    gap: 16px;
+  }
 }
 
 .social {
@@ -48,6 +88,13 @@ body {
      object-fit: contain;
 }
 
+/* Make desktop nav solid on inner pages (when `is-home` is not present) */
+.desktop-navbar:not(.is-home) {
+  background: #000 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
 .content {
   padding: 0 20px;
   max-width: 1200px;
@@ -60,7 +107,7 @@ h2 {
   font-family: "League Gothic";
   font-weight: 500;
   text-transform: uppercase;
-  font-size: 36px;
+  font-size: 42px;
 }
 
 p {
@@ -74,7 +121,7 @@ p {
 
 .order-button {
   display: inline-block;
-  background-color: var(--primary-red);
+  background-color: var(--red);
   color: var(--white);
   padding: 16px 24px;
   border-radius: 200px;
@@ -86,12 +133,29 @@ p {
   font-family: "Zalando Sans";
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 6px 0 rgb(0, 0, 0);
+  box-shadow: 0 6px 0 var(--black);
+}
+
+.order-button-alt {
+  display: inline-block;
+  background-color: var(--beige);
+  color: var(--black);
+  padding: 16px 24px;
+  border-radius: 200px;
+  border: 2px solid var(--black);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: "Zalando Sans";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 0 var(--black);
 }
 
 .order-button-medium {
   display: inline-block;
-  background-color: var(--primary-red);
+  background-color: var(--red);
   color: var(--white);
   padding: 8px 16px;
   border-radius: 200px;
@@ -391,8 +455,8 @@ p {
   width: 300px;
   height: 100%;
   transform: translateX(50%);
-  right: 50%;
-  top: 45px;
+  right: 45%;
+  top: 70px;
 }
 #intro-section h1 span {
   color: var(--black);
@@ -400,7 +464,7 @@ p {
 #intro-section p {
   color: var(--black);
 }
-#intro-section .order-button {
+#intro-section .order-button-alt {
   margin-top: 60px;
 }
 #intro-section .inner {
@@ -451,7 +515,7 @@ p {
 
 #coffee-section {
   padding: 50px 0 60px;
-  background: #F0EEE9;
+  background: var(--beige);
   position: relative;
 }
 #coffee-section .inner {
@@ -490,6 +554,8 @@ p {
   height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: 23% center;
+     object-position: 23% center;
   border-radius: 16px;
 }
 #team-section .inner p {
@@ -498,7 +564,7 @@ p {
 }
 
 footer {
-  background-color: var(--primary-red);
+  background-color: var(--red);
   color: var(--white);
   padding: 50px 0;
   text-align: center;
@@ -566,6 +632,22 @@ footer .footer-content .terms span {
   font-size: 11px;
 }
 
+@media (min-width: 503px) {
+  #intro-section h1:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: url("/images/brushstroke/red.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    height: 100%;
+    transform: translateX(50%);
+    right: 50%;
+    top: 45px;
+  }
+}
 @media (min-width: 800px) {
   #body-wrapper {
     margin-top: -164px;
@@ -586,7 +668,7 @@ footer .footer-content .terms span {
     display: flex;
   }
   #intro-section {
-    padding: 100px;
+    padding: 100px 0;
   }
   #coffee-section {
     padding: 0;
@@ -610,7 +692,7 @@ footer .footer-content .terms span {
     width: calc(50% - 40px);
   }
   #team-section {
-    padding: 100px;
+    padding: 100px 0;
   }
   #team-section .inner {
     display: grid;
