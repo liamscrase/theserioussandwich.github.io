@@ -13,6 +13,15 @@ import "@splidejs/splide/css";
     />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-567P2C87"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <Header />
     <div id="body-wrapper">
       <div class="hero-section">
@@ -104,7 +113,9 @@ import "@splidejs/splide/css";
                 with care, our dedicated team works tirelessly to ensure every
                 bite is a testament to our commitment to excellence.
               </p>
-              <a href="/about" class="order-button secondary large">★ &nbsp; About us &nbsp; ★</a>
+              <a href="/about" class="order-button secondary large"
+                >★ &nbsp; About us &nbsp; ★</a
+              >
             </div>
             <img src="/images/team.jpg" alt="" />
           </div>
@@ -129,6 +140,7 @@ import "@splidejs/splide/css";
     perPage: 3, // Desktop default
 
     breakpoints: {
+      1280: { arrows: false }, // Remove arrows at 1280px and below
       1024: { perPage: 2 }, // Tablets
       640: { perPage: 1 }, // Mobile
     },
