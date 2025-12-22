@@ -1,23 +1,43 @@
 ---
-import Header from "../components/header.astro";
+// This is the Astro component script area (frontmatter)
+// You can write JavaScript/TypeScript here that runs at build time.
+const pageTitle = "Coming Soon!";
 ---
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="stylesheet" href="/styles.css" />
-		<title>Astro</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<Header />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+        font-family: sans-serif;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background: white;
+        border-radius: 8px;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="/images/logo.webp" alt="" style="width: 300px;" />
+      <h1>Our Website is Coming Soon!</h1>
+      <p>We are working hard to launch our new site. Stay tuned for updates!</p>
+    </div>
+  </body>
 </html>
