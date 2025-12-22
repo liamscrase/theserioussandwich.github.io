@@ -23,48 +23,9 @@ body {
 }
 
 #body-wrapper {
-  margin-top: 67px;
+  margin-top: 66px;
   position: relative;
   z-index: 1;
-}
-
-/* Contact form styles */
-.contact-form {
-  max-width: 720px;
-  margin: 24px auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.contact-form label {
-  display: block;
-  font-family: "Zalando Sans";
-  font-size: 14px;
-  color: var(--black);
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: transparent;
-  color: inherit;
-  font-family: inherit;
-  font-size: 14px;
-  resize: vertical;
-}
-.contact-form textarea {
-  min-height: 140px;
-}
-.contact-form .order-button-medium {
-  align-self: flex-start;
-  margin-top: 6px;
-}
-@media (min-width: 800px) {
-  .contact-form {
-    gap: 16px;
-  }
 }
 
 .social {
@@ -88,18 +49,20 @@ body {
      object-fit: contain;
 }
 
-/* Make desktop nav solid on inner pages (when `is-home` is not present) */
-.desktop-navbar:not(.is-home) {
-  background: #000 !important;
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-}
-
 .content {
   padding: 0 20px;
   max-width: 1200px;
   margin: auto;
   width: 100%;
+}
+
+h1 {
+  font-family: "League Gothic";
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 56px;
+  line-height: 100%;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -110,9 +73,14 @@ h2 {
   font-size: 42px;
 }
 
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
 p {
-  font-family: "Zalando Sans";
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 300;
   line-height: 20px;
@@ -120,37 +88,76 @@ p {
 }
 
 .order-button {
-  display: inline-block;
+  display: inline-flex;
+  border-radius: 200px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 118px;
+  align-items: center;
+  gap: 12px;
+}
+.order-button.primary {
   background-color: var(--red);
   color: var(--white);
-  padding: 16px 24px;
-  border-radius: 200px;
-  border: 2px solid #000;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-  font-family: "Zalando Sans";
-  cursor: pointer;
-  transition: background-color 0.3s ease;
   box-shadow: 0 6px 0 var(--black);
+  border: solid var(--black);
 }
-
-.order-button-alt {
-  display: inline-block;
+.order-button.secondary {
   background-color: var(--beige);
   color: var(--black);
-  padding: 16px 24px;
-  border-radius: 200px;
-  border: 2px solid var(--black);
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-  font-family: "Zalando Sans";
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: solid var(--black);
   box-shadow: 0 6px 0 var(--black);
+}
+.order-button.tertiary {
+  background-color: var(--black);
+  color: var(--white);
+  box-shadow: 0 6px 0 var(--white);
+  border: solid var(--white);
+}
+.order-button.quaternary {
+  background-color: var(--red);
+  color: var(--white);
+  box-shadow: 0 6px 0 var(--white);
+  border: solid var(--white);
+}
+.order-button.large {
+  padding: 16px 24px;
+  font-size: 16px;
+  border-width: 2px;
+}
+.order-button.large:hover {
+  position: relative;
+  top: 4px;
+  box-shadow: none;
+}
+.order-button.medium {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-width: 2px;
+}
+.order-button.medium:hover {
+  position: relative;
+  top: 4px;
+  box-shadow: none;
+}
+.order-button.small {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-width: 1px;
+}
+.order-button.small:hover {
+  position: relative;
+  top: 4px;
+  box-shadow: none;
+}
+.order-button.small-no-shadow {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-width: 1px;
+  box-shadow: none;
 }
 
 .order-button-medium {
@@ -244,9 +251,10 @@ p {
   letter-spacing: 1.5px;
   font-weight: 600;
   font-family: "Zalando Sans";
+  transition: opacity 0.3s ease;
 }
 .desktop-navbar .desktop-navbar-container .nav-links ul li a:hover {
-  color: var(--hover-color);
+  opacity: 0.7;
 }
 
 .mobile-navbar {
@@ -435,12 +443,7 @@ p {
   background-color: var(--white);
 }
 #intro-section h1 {
-  font-size: 56px;
   margin-bottom: 35px;
-  line-height: 58px;
-  font-family: "League Gothic";
-  font-weight: 500;
-  text-transform: uppercase;
   color: var(--black);
   position: relative;
 }
@@ -464,7 +467,7 @@ p {
 #intro-section p {
   color: var(--black);
 }
-#intro-section .order-button-alt {
+#intro-section .order-button {
   margin-top: 60px;
 }
 #intro-section .inner {
@@ -632,6 +635,133 @@ footer .footer-content .terms span {
   font-size: 11px;
 }
 
+#contact-page {
+  padding: 50px 0;
+  /* Result / feedback */
+}
+#contact-page .contact-options {
+  display: flex;
+  flex-direction: column-reverse;
+}
+#contact-page .contact-options .call {
+  min-width: 223px;
+}
+#contact-page p {
+  margin-bottom: 46px;
+}
+#contact-page .order-button {
+  margin-bottom: 50px;
+}
+#contact-page .contact-form {
+  max-width: 720px;
+  display: block;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+#contact-page .contact-form .send-button {
+  display: inline-block;
+  background-color: var(--red);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 200px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: "Zalando Sans";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#contact-page .contact-form label {
+  display: block;
+  font-family: "Zalando Sans";
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+#contact-page .contact-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#contact-page .contact-form input,
+#contact-page .contact-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: #F9F9F9;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.08s ease;
+}
+#contact-page .contact-form textarea {
+  min-height: 160px;
+}
+#contact-page .contact-form input:focus,
+#contact-page .contact-form textarea:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 6px 18px rgba(154, 52, 55, 0.06);
+  transform: translateY(-1px);
+}
+#contact-page .contact-form.contact-sent {
+  opacity: 0.75;
+  pointer-events: none;
+  filter: grayscale(0.02);
+  transition: opacity 0.3s ease;
+}
+@media (min-width: 800px) {
+  #contact-page .contact-form {
+    gap: 18px;
+    padding: 28px;
+  }
+}
+#contact-page #contact-result {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: 32px;
+  transition: all 0.25s ease;
+  opacity: 0;
+  transform: translateY(6px);
+}
+#contact-page #contact-result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#contact-page #contact-result.success {
+  background: #e8fbef;
+  color: #0f864e;
+  border: 1px solid rgba(15, 134, 78, 0.12);
+  box-shadow: 0 8px 20px rgba(15, 134, 78, 0.06);
+}
+#contact-page #contact-result.error {
+  background: #fff0f0;
+  color: #8a1f1f;
+  border: 1px solid rgba(138, 31, 31, 0.12);
+  box-shadow: 0 8px 20px rgba(138, 31, 31, 0.04);
+}
+#contact-page #contact-result .result-details {
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.8);
+}
+#contact-page #contact-result .result-details p {
+  margin: 6px 0;
+}
+#contact-page #contact-result .result-details strong {
+  font-weight: 700;
+  margin-right: 6px;
+}
+
 @media (min-width: 503px) {
   #intro-section h1:before {
     content: "";
@@ -651,6 +781,16 @@ footer .footer-content .terms span {
 @media (min-width: 800px) {
   #body-wrapper {
     margin-top: -164px;
+  }
+  .header-bg {
+    display: block;
+    width: 100%;
+    height: 164px;
+    z-index: -1;
+    background-color: #000;
+  }
+  h1 {
+    font-size: 64px;
   }
   h2 {
     font-size: 48px;
@@ -715,5 +855,16 @@ footer .footer-content .terms span {
   }
   footer .footer-content .terms {
     justify-content: flex-end;
+  }
+  #contact-page {
+    padding: 80px 0;
+  }
+  #contact-page .contact-options {
+    flex-direction: row;
+    gap: 80px;
+    justify-content: space-between;
+  }
+  #contact-page .contact-options .contact-form-wrapper {
+    width: 70%;
   }
 }/*# sourceMappingURL=styles.css.map */

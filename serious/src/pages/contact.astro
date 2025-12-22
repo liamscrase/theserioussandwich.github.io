@@ -13,31 +13,155 @@ import SiteHead from "../components/SiteHead.astro";
   </head>
   <body>
     <Header />
-    <section class="content">
-      <h1>Contact</h1>
+    <div id="body-wrapper">
+      <section class="header-bg"></section>
+      <div id="contact-page">
+        <div class="content">
+          <h1>Contact us</h1>
+          <p>
+            If you have questions or catering enquiries, drop us a message or
+            give us a ring.
+          </p>
+          <section class="contact-options">
+            <div class="contact-form-wrapper">
+              <h3>Send us a message</h3>
+              <form id="contact-form" class="contact-form" novalidate>
+                <label>
+                  Name
+                  <input type="text" name="name" required />
+                </label>
 
-      <p>If you have questions or catering enquiries, drop us a message.</p>
+                <label>
+                  Email
+                  <input type="email" name="email" required />
+                </label>
 
-      <form action="/" method="post" class="contact-form">
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
+                <label>
+                  Message
+                  <textarea name="message" rows="6" required></textarea>
+                </label>
 
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New contact form submission"
+                />
 
-        <label>
-          Message
-          <textarea name="message" rows="6" required></textarea>
-        </label>
+                <button type="submit" class="order-button-medium">Send</button>
+              </form>
+              <div id="contact-result" aria-live="polite"></div>
+            </div>
+            <div class="call">
+              <h3>Give us a call</h3>
 
-        <button type="submit" class="order-button-medium">Send</button>
-      </form>
-    </section>
-
+              <a class="order-button secondary medium" href="tel:+6433719167">
+                <span class="material-icons" aria-hidden="true">phone</span>
+                +64 03 371 9167
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
     <Footer />
   </body>
 </html>
+
+<script>
+  (function () {
+    const form = document.getElementById(
+      "contact-form",
+    ) as HTMLFormElement | null;
+    const result = document.getElementById(
+      "contact-result",
+    ) as HTMLElement | null;
+    if (!form || !result) return;
+
+    function showResult(
+      el: HTMLElement,
+      message: string,
+      status: "success" | "error",
+      details?: { name?: string; email?: string; message?: string },
+    ) {
+        // Clear existing content
+        el.innerHTML = '';
+        el.className = '';
+
+        // Title
+        const title = document.createElement('div');
+        title.textContent = message;
+        el.appendChild(title);
+
+        // Optional details (safe text-only rendering)
+        if (details) {
+          const container = document.createElement('div');
+          container.className = 'result-details';
+
+          if (details.name) {
+            const p = document.createElement('p');
+            const strong = document.createElement('strong');
+            strong.textContent = 'Name: ';
+            p.appendChild(strong);
+            p.appendChild(document.createTextNode(details.name));
+            container.appendChild(p);
+          }
+
+          if (details.email) {
+            const p = document.createElement('p');
+            const strong = document.createElement('strong');
+            strong.textContent = 'Email: ';
+            p.appendChild(strong);
+            p.appendChild(document.createTextNode(details.email));
+            container.appendChild(p);
+          }
+
+          if (details.message) {
+            const p = document.createElement('p');
+            const strong = document.createElement('strong');
+            strong.textContent = 'Message: ';
+            p.appendChild(strong);
+            const msgSpan = document.createElement('span');
+            msgSpan.textContent = details.message;
+            msgSpan.style.whiteSpace = 'pre-wrap';
+            p.appendChild(msgSpan);
+            container.appendChild(p);
+          }
+
+          el.appendChild(container);
+        }
+
+        // force reflow so transitions apply when toggling
+        void el.offsetWidth;
+        el.classList.add('show');
+        if (status === 'success') el.classList.add('success');
+        if (status === 'error') el.classList.add('error');
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch("https://formspree.io/f/xdanabpw", {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+        if (res.ok) {
+            // capture submitted values before resetting the form
+            const submitted = {
+              name: (form.querySelector('[name="name"]') as HTMLInputElement)?.value || '',
+              email: (form.querySelector('[name="email"]') as HTMLInputElement)?.value || '',
+              message: (form.querySelector('[name="message"]') as HTMLTextAreaElement)?.value || '',
+            };
+            showResult(result, 'Thanks — message sent. We will get back to you soon.', 'success', submitted);
+            form.classList.add('contact-sent');
+            form.reset();
+        } else {
+          showResult(result, "Send failed. Please try again.", "error");
+        }
+      } catch (err) {
+        showResult(result, "Network error. Try again later.", "error");
+      }
+    });
+  })();
+</script>
