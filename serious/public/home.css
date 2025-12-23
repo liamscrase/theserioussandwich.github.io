@@ -192,6 +192,22 @@
   max-width: 700px;
 }
 
+@media (min-width: 503px) {
+  #intro-section h1:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: url("/images/brushstroke/red.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    height: 100%;
+    transform: translateX(50%);
+    right: 45%;
+    top: 45px;
+  }
+}
 @media (min-width: 800px) {
   .hero-section {
     height: 600px;
