@@ -79,4 +79,85 @@ const siteTitle = "The Serious Sandwich";
   <label for="menu-toggle" class="offcanvas-backdrop"></label>
 </nav>
 
-<script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async ></script>
+<div id="ordering-modal" class="ordering-modal hidden">
+  <div class="ordering-backdrop"></div>
+
+  <div class="ordering-content">
+    <button class="ordering-close" aria-label="Close">&times;</button>
+    <h2>Ordering coming soon</h2>
+    <p>
+      Our online ordering system isn’t live just yet.
+      We’ll be serving up online orders very soon.
+    </p>
+  </div>
+</div>
+
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("ordering-modal");
+    
+    const orderButtons = document.querySelectorAll(
+      ".order-button[data-glf-cuid]"
+    );
+    
+    orderButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.classList.remove("hidden");
+      });
+    });
+    
+    modal.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("ordering-backdrop") ||
+        e.target.classList.contains("ordering-close")
+      ) {
+        modal.classList.add("hidden");
+      }
+    });
+  });
+</script>
+
+
+<style>
+  .ordering-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+  }
+  
+  .ordering-modal.hidden {
+    display: none;
+  }
+  
+  .ordering-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .ordering-content {
+    position: relative;
+    max-width: 420px;
+    margin: 15vh auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 14px;
+    text-align: center;
+  }
+  
+  .ordering-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  </style>
+
+  
+  <!-- <script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async ></script> -->
