@@ -192,6 +192,18 @@
   max-width: 700px;
 }
 
+#instagram-feed-section {
+  padding: 30px 0 50px 0;
+}
+#instagram-feed-section .lightwidget__posts--image-format-square .lightwidget__image {
+  border-radius: 16px;
+}
+@media (max-width: 502px) {
+  #instagram-feed-section .lightwidget__posts--grid .lightwidget__tile {
+    min-width: 50%;
+  }
+}
+
 @media (min-width: 503px) {
   #intro-section h1:before {
     content: "";
@@ -248,5 +260,8 @@
     direction: rtl;
     text-align: left;
     align-items: center;
+  }
+  #instagram-feed-section {
+    padding: 30px 0 100px 0;
   }
 }/*# sourceMappingURL=home.css.map */

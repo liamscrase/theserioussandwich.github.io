@@ -80,6 +80,7 @@ import "@splidejs/splide/css";
           </div>
         </div>
       </div>
+
       <div id="coffee-section">
         <div class="content">
           <div class="inner">
@@ -102,6 +103,7 @@ import "@splidejs/splide/css";
           </div>
         </div>
       </div>
+
       <div id="team-section">
         <div class="content">
           <div class="inner">
@@ -121,28 +123,53 @@ import "@splidejs/splide/css";
           </div>
         </div>
       </div>
+
+<!--       <div id="instagram-feed-section">
+        <div class="content">
+          <div class="inner">
+            <div class="text">
+              <h2>Follow Us on Instagram</h2>
+              <p>
+                See our latest sandwiches, specials, and behind-the-scenes
+                moments!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content light-widget">
+          <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"
+          ></script><iframe
+            src="//lightwidget.com/widgets/9b9615014c8b581b8191c11f815b7efb.html"
+            scrolling="no"
+            allowtransparency="true"
+            class="lightwidget-widget"
+            style="width:100%;border:0;overflow:hidden;"></iframe>
+        </div> -->
+
+        <Footer />
+
+      </div>
+
+      <script>
+        import Splide from "@splidejs/splide";
+
+        new Splide("#food-slider", {
+          type: "loop",
+          gap: "1rem",
+          arrows: true,
+          pagination: true,
+          autoplay: false,
+
+          // ⭐️ RESPONSIVE SETTINGS
+          perPage: 3, // Desktop default
+
+          breakpoints: {
+            1280: { arrows: false }, // Remove arrows at 1280px and below
+            1024: { perPage: 2 }, // Tablets
+            640: { perPage: 1 }, // Mobile
+          },
+        }).mount();
+      </script>
     </div>
-    <Footer />
   </body>
 </html>
-
-<script>
-  import Splide from "@splidejs/splide";
-
-  new Splide("#food-slider", {
-    type: "loop",
-    gap: "1rem",
-    arrows: true,
-    pagination: true,
-    autoplay: false,
-
-    // ⭐️ RESPONSIVE SETTINGS
-    perPage: 3, // Desktop default
-
-    breakpoints: {
-      1280: { arrows: false }, // Remove arrows at 1280px and below
-      1024: { perPage: 2 }, // Tablets
-      640: { perPage: 1 }, // Mobile
-    },
-  }).mount();
-</script>
