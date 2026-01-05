@@ -1,0 +1,16 @@
+#terms-and-privacy {
+  padding: 50px 0;
+}
+
+h2 {
+  margin: 40px 0 12px 0;
+  font-family: "Zalando Sans";
+  text-transform: none;
+  font-size: 20px;
+}
+
+@media (min-width: 800px) {
+  #terms-and-privacy {
+    padding: 100px 0;
+  }
+}/*# sourceMappingURL=tsandcs.css.map */

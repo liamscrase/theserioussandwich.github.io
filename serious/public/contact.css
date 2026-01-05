@@ -14,6 +14,7 @@
 }
 #contact-page .order-button {
   margin-bottom: 50px;
+  min-width: 192px;
 }
 #contact-page .contact-form {
   max-width: 720px;
