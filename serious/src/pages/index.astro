@@ -144,7 +144,7 @@ import "@splidejs/splide/css";
             scrolling="no"
             allowtransparency="true"
             class="lightwidget-widget"
-            style="width:100%;border:0;overflow:hidden;"></iframe>
+            style="width:100%;border:0;overflow:visible;"></iframe>
         </div>
         <div class="content">
              <a href="https://instagram.com/theserious.sandwich" class="order-button primary large" target="_blank" rel="noopener noreferrer">★ &nbsp; Visit our Instagram &nbsp; ★</a>
@@ -160,14 +160,14 @@ import "@splidejs/splide/css";
           type: "loop",
           gap: "1rem",
           arrows: true,
-          pagination: true,
+          pagination: false,
           autoplay: false,
 
           // ⭐️ RESPONSIVE SETTINGS
           perPage: 3, // Desktop default
 
           breakpoints: {
-            1280: { arrows: false }, // Remove arrows at 1280px and below
+            // 1280: { arrows: false }, // Remove arrows at 1280px and below
             1024: { perPage: 2 }, // Tablets
             640: { perPage: 1 }, // Mobile
           },

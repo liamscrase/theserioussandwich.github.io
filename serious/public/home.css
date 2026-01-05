@@ -67,7 +67,7 @@
   color: var(--black);
 }
 #intro-section .order-button {
-  margin-top: 60px;
+  margin-top: 24px;
 }
 #intro-section .inner {
   display: flex;
@@ -103,8 +103,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
   background: var(--white);
   color: var(--black);
@@ -117,20 +117,20 @@
   z-index: 5;
 }
 #intro-section .splide__arrow svg {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   fill: currentColor;
+}
+#intro-section .splide__arrow--prev {
+  left: 5px;
+}
+#intro-section .splide__arrow--next {
+  right: 5px;
 }
 #intro-section .splide__arrow:hover {
   transform: translateY(-50%) scale(1.2);
   background: var(--red);
   color: var(--white);
-}
-#intro-section .splide__arrow--prev {
-  left: -70px;
-}
-#intro-section .splide__arrow--next {
-  right: -70px;
 }
 #intro-section .splide__pagination {
   bottom: -60px;
@@ -270,5 +270,35 @@
   }
   #instagram-feed-section {
     padding: 30px 0 100px 0;
+  }
+}
+@media (min-width: 1350px) {
+  #intro-section .splide__arrow--prev {
+    left: -70px;
+  }
+  #intro-section .splide__arrow--next {
+    right: -70px;
+  }
+  #intro-section .splide__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 150ms ease;
+    z-index: 5;
+  }
+  #intro-section .splide__arrow svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
   }
 }/*# sourceMappingURL=home.css.map */
