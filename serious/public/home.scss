@@ -143,13 +143,13 @@
     fill: currentColor;
   }
 
-      .splide__arrow--prev {
-      left: 5px;
-    }
+  .splide__arrow--prev {
+    left: 5px;
+  }
 
-    .splide__arrow--next {
-      right: 5px;
-    }
+  .splide__arrow--next {
+    right: 5px;
+  }
 
 
   .splide__arrow:hover {
@@ -251,19 +251,19 @@
     margin-bottom: 32px;
   }
 
-  .light-widget {
-    margin-bottom: 40px;
-  }
+  .insta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 50px;
 
-  .lightwidget__posts--image-format-square .lightwidget__image {
-    border-radius: 16px;
-  }
-
-  @media (max-width: 502px) {
-    .lightwidget__posts--grid .lightwidget__tile {
-      min-width: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
     }
   }
+
 }
 
 @media (min-width: 503px) {
@@ -340,10 +340,16 @@
       align-items: center;
     }
   }
-
   #instagram-feed-section {
-    padding: 30px 0 100px 0;
+
+  .insta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 50px;
   }
+
+}
 }
 
 @media (min-width: 1350px) {
@@ -357,28 +363,28 @@
       right: -70px;
     }
 
-      .splide__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
-    border-radius: 999px;
-    background: var(--white);
-    color: var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.20);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all 150ms ease;
-    z-index: 5;
-  }
+    .splide__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.20);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 150ms ease;
+      z-index: 5;
+    }
 
-  .splide__arrow svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-  }
+    .splide__arrow svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
   }
 }
