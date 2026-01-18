@@ -4,10 +4,6 @@
   gap: 32px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background: url("/images/intro-img.jpeg");
-  background-size: cover;
-  background-position: center;
   position: relative;
   height: 400px;
   overflow: hidden;
@@ -30,6 +26,19 @@
   gap: 32px;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-section .inner .order-button {
+  min-width: 300px;
+}
+.hero-section .hero-img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hero-section img {
   height: 200px;

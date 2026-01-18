@@ -40,3 +40,15 @@ const { title = "The Serious Sandwich", description = "" } = Astro.props;
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet"
 />
+<link
+  rel="preload"
+  as="image"
+  href="/images/hero-img-1600.jpeg"
+  imagesrcset="
+    /images/hero-img-640.jpeg 640w,
+    /images/hero-img-1024.jpeg 1024w,
+    /images/hero-img-1600.jpeg 1600w,
+    /images/hero-img-2200.jpeg 2200w
+  "
+  imagesizes="100vw"
+/>
