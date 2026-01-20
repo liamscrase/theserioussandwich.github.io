@@ -26,19 +26,13 @@
   gap: 32px;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.hero-section .inner .order-button {
-  min-width: 300px;
 }
 .hero-section .hero-img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  position: absolute;
 }
 .hero-section img {
   height: 200px;
