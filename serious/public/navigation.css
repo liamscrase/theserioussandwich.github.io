@@ -220,7 +220,7 @@ footer .google-map {
 footer .google-map iframe {
   border-radius: 12px;
 }
-footer .copyright {
+footer .copyright, footer .footer-hours {
   display: block;
   color: var(--text-color-alt);
   font-size: 11px;
