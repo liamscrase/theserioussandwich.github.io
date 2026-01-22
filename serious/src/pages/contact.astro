@@ -1,88 +1,67 @@
 ---
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
-import SiteHead from "../components/SiteHead.astro";
+import Layout from "../Layouts/layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <SiteHead
-      title="The Serious Sandwich"
-      description="Seriously Good Sandwiches made fresh daily."
-    />
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-567P2C87"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
-    <!-- End Google Tag Manager (noscript) -->
-    <Header />
-    <div id="body-wrapper">
-      <section class="header-bg"></section>
-      <div id="contact-page">
-        <div class="content">
-          <h1>Contact us</h1>
-          <p>
-            If you have questions or catering enquiries, drop us a message or
-            give us a ring.
-          </p>
-          <section class="contact-options">
-            <div class="contact-form-wrapper">
-              <h3>Send us a message</h3>
-              <form id="contact-form" class="contact-form" novalidate>
-                <label>
-                  Name
-                  <input type="text" name="name" required />
-                </label>
+<Layout>
+  <div id="body-wrapper">
+    <section class="header-bg"></section>
+    <div id="contact-page">
+      <div class="content">
+        <h1>Contact us</h1>
+        <p>
+          If you have questions or catering enquiries, drop us a message or give
+          us a ring.
+        </p>
+        <section class="contact-options">
+          <div class="contact-form-wrapper">
+            <h3>Send us a message</h3>
+            <form id="contact-form" class="contact-form" novalidate>
+              <label>
+                Name
+                <input type="text" name="name" required />
+              </label>
 
-                <label>
-                  Email
-                  <input type="email" name="email" required />
-                </label>
+              <label>
+                Email
+                <input type="email" name="email" required />
+              </label>
 
-                <label>
-                  Message
-                  <textarea name="message" rows="6" required></textarea>
-                </label>
+              <label>
+                Message
+                <textarea name="message" rows="6" required></textarea>
+              </label>
 
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="New contact form submission"
-                />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New contact form submission"
+              />
 
-                <button type="submit" class="order-button-medium">Send</button>
-              </form>
-              <div id="contact-result" aria-live="polite"></div>
-            </div>
-            <div class="call">
-              <h3>Give us a call</h3>
+              <button type="submit" class="order-button-medium">Send</button>
+            </form>
+            <div id="contact-result" aria-live="polite"></div>
+          </div>
+          <div class="call">
+            <h3>Give us a call</h3>
 
-              <a class="order-button secondary medium" href="tel:0211892915">
-                <span class="material-icons" aria-hidden="true">phone</span>
-                021 189 2915
-              </a>
-            </div>
-          </section>
-        </div>
+            <a class="order-button secondary medium" href="tel:0211892915">
+              <span class="material-icons" aria-hidden="true">phone</span>
+              021 189 2915
+            </a>
+          </div>
+        </section>
       </div>
     </div>
-    <Footer />
-  </body>
-</html>
+  </div>
+</Layout>
 
 <script>
   (function () {
     const form = document.getElementById(
-      "contact-form"
+      "contact-form",
     ) as HTMLFormElement | null;
     const result = document.getElementById(
-      "contact-result"
+      "contact-result",
     ) as HTMLElement | null;
     if (!form || !result) return;
 
@@ -90,7 +69,7 @@ import SiteHead from "../components/SiteHead.astro";
       el: HTMLElement,
       message: string,
       status: "success" | "error",
-      details?: { name?: string; email?: string; message?: string }
+      details?: { name?: string; email?: string; message?: string },
     ) {
       // Clear existing content
       el.innerHTML = "";
@@ -172,7 +151,7 @@ import SiteHead from "../components/SiteHead.astro";
             result,
             "Thanks — message sent. We will get back to you soon.",
             "success",
-            submitted
+            submitted,
           );
           form.classList.add("contact-sent");
           form.reset();

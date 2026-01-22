@@ -1,66 +1,45 @@
 ---
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
-import SiteHead from "../components/SiteHead.astro";
+import Layout from "../Layouts/layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <SiteHead
-      title="The Serious Sandwich"
-      description="Seriously Good Sandwiches made fresh daily."
-    />
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-567P2C87"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
-    <!-- End Google Tag Manager (noscript) -->
-    <Header />
-    <div id="body-wrapper">
-      <section class="header-bg"></section>
-      <div id="about-page">
-        <div class="content">
-          <div class="intro-section">
-            <h1>About The Serious Sandwich</h1>
-            <div class="images">
-              <img src="/images/about-1.webp" alt="About us image" />
-              <img src="/images/about-2.webp" alt="About us image" />
 
-            </div>
-
-            <p>
-              At The Serious Sandwich, we believe that a sandwich is more than
-              just a meal – it's an experience. Founded in 2011, our mission has
-              always been to craft seriously good sandwiches using the freshest
-              ingredients and boldest flavors.
-            </p>
-            <p>
-              Our team is passionate about creating unique combinations that
-              delight the taste buds and satisfy hunger. From classic favorites
-              to innovative creations, every sandwich is made with care and
-              attention to detail.
-            </p>
-            <p>
-              We are committed to sustainability and supporting local farmers by
-              sourcing our ingredients responsibly. Join us in our journey to
-              make every bite a serious delight!
-            </p>
-            <span
-              class="order-button secondary large"
-              data-glf-cuid="188ddbcd-9a26-49d6-b778-3d6940d80a13"
-              data-glf-ruid="60be44a5-3532-41ae-a3d1-ae77c743ef70"
-              >★ &nbsp; See menu & order &nbsp; ★</span
-            >
+<Layout>
+  <div id="body-wrapper">
+    <section class="header-bg"></section>
+    <div id="about-page">
+      <div class="content">
+        <div class="intro-section">
+          <h1>About The Serious Sandwich</h1>
+          <div class="images">
+            <img src="/images/about-1.webp" alt="About us image" />
+            <img src="/images/about-2.webp" alt="About us image" />
           </div>
+
+          <p>
+            At The Serious Sandwich, we believe that a sandwich is more than
+            just a meal – it's an experience. Founded in 2011, our mission has
+            always been to craft seriously good sandwiches using the freshest
+            ingredients and boldest flavors.
+          </p>
+          <p>
+            Our team is passionate about creating unique combinations that
+            delight the taste buds and satisfy hunger. From classic favorites to
+            innovative creations, every sandwich is made with care and attention
+            to detail.
+          </p>
+          <p>
+            We are committed to sustainability and supporting local farmers by
+            sourcing our ingredients responsibly. Join us in our journey to make
+            every bite a serious delight!
+          </p>
+          <span
+            class="order-button secondary large"
+            data-glf-cuid="188ddbcd-9a26-49d6-b778-3d6940d80a13"
+            data-glf-ruid="60be44a5-3532-41ae-a3d1-ae77c743ef70"
+            >★ &nbsp; See menu & order &nbsp; ★</span
+          >
         </div>
       </div>
     </div>
-    <Footer />
-  </body>
-</html>
+  </div>
+</Layout>
