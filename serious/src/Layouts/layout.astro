@@ -7,7 +7,7 @@ import Footer from "../components/footer.astro";
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    <script>
+    <script is:inline>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -67,4 +67,64 @@ import Footer from "../components/footer.astro";
     <slot />
     <Footer />
   </body>
+
+  <script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async></script>
+
+  <script is:inline>
+    if (typeof window !== "undefined") {
+      document.addEventListener("click", (e) => {
+        const el = e.target.closest("[data-track-click]");
+        if (!el || !window.dataLayer) return;
+
+        const name = el.dataset.trackName || el.innerText.trim();
+
+        const dataset = {};
+        Object.keys(el.dataset).forEach((key) => {
+          if (key !== "trackName") dataset[key] = el.dataset[key];
+        });
+
+        window.dataLayer.push({
+          event: "button_click",
+          button_name: name,
+          button_id: el.id || undefined,
+          button_class: el.className || undefined,
+          page_path: window.location.pathname,
+          ...dataset,
+        });
+
+        if (el.tagName === "A" && el.href && !el.target) {
+          e.preventDefault();
+          setTimeout(() => {
+            window.location.href = el.href;
+          }, 50);
+        }
+      });
+    }
+  </script>
+
+  <!-- Splide CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+  ></script>
+  <script>
+    declare const Splide: any;
+    document.addEventListener("DOMContentLoaded", function () {
+      new Splide("#food-slider", {
+        type: "loop",
+        gap: "1rem",
+        arrows: true,
+        pagination: false,
+        autoplay: false,
+        perPage: 3,
+        breakpoints: {
+          1024: { perPage: 2 },
+          640: { perPage: 1 },
+        },
+      }).mount();
+    });
+  </script>
 </html>
